@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>aoilab3D</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+
+      --bg:#050816;
+
+      --card:#101827;
+
+      --primary:#00d4ff;
+
+      --secondary:#7c3aed;
+
+      --text:#f8fafc;
+
+      --muted:#94a3b8;
+
+      --border:
+      rgba(255,255,255,0.08);
+
+      --gradient:
+      linear-gradient(
+        135deg,
+        #00d4ff 0%,
+        #7c3aed 100%
+      );
+    }
+
+    body{
+
+      font-family:'Inter',sans-serif;
+
+      background:
+      radial-gradient(
+        circle at top,
+        #0f172a 0%,
+        #050816 70%
+      );
+
+      color:var(--text);
+
+      overflow-x:hidden;
+    }
+
+    header{
+
+      position:sticky;
+
+      top:0;
+
+      z-index:999;
+
+      backdrop-filter:blur(10px);
+
+      background:
+      rgba(5,8,22,0.7);
+
+      border-bottom:
+      1px solid var(--border);
+    }
+
+    .navbar{
+
+      max-width:1400px;
+
+      margin:auto;
+
+      padding:18px 24px;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+    }
+
+    .logo{
+
+      display:flex;
+
+      align-items:center;
+
+      gap:14px;
+    }
+
+    .logo-icon{
+
+      width:48px;
+
+      height:48px;
+
+      border-radius:14px;
+
+      background:var(--gradient);
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      font-weight:800;
+    }
+
+    .logo h1{
+
+      font-size:1.2rem;
+    }
+
+    .logo span{
+
+      color:var(--primary);
+    }
+
+    .hero{
+
+      max-width:1400px;
+
+      margin:auto;
+
+      padding:
+      90px 24px 70px;
+
+      display:grid;
+
+      grid-template-columns:
+      1fr 1fr;
+
+      gap:60px;
+
+      align-items:center;
+    }
+
+    .hero h2{
+
+      font-size:4rem;
+
+      line-height:1.05;
+
+      margin-bottom:24px;
+
+      font-weight:800;
+    }
+
+    .hero h2 span{
+
+      background:var(--gradient);
+
+      -webkit-background-clip:text;
+
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+
+      color:var(--muted);
+
+      line-height:1.8;
+
+      margin-bottom:30px;
+
+      max-width:620px;
+    }
+
+    .btn{
+
+      border:none;
+
+      cursor:pointer;
+
+      padding:14px 24px;
+
+      border-radius:14px;
+
+      font-weight:700;
+
+      background:var(--gradient);
+
+      color:white;
+    }
+
+    .hero-visual{
+
+      position:relative;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+    }
+
+    .orb{
+
+      position:absolute;
+
+      width:420px;
+
+      height:420px;
+
+      border-radius:50%;
+
+      background:
+      radial-gradient(
+        circle,
+        rgba(0,212,255,0.35),
+        transparent 70%
+      );
+
+      filter:blur(25px);
+
+      animation:
+      float 6s ease-in-out infinite;
+    }
+
+    .cube{
+
+      width:260px;
+
+      height:260px;
+
+      border-radius:32px;
+
+      background:
+      linear-gradient(
+        145deg,
+        #172036,
+        #0f172a
+      );
+
+      border:
+      1px solid rgba(255,255,255,0.08);
+
+      transform:rotate(16deg);
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+    }
+
+    .cube::before{
+
+      content:"3D";
+
+      font-size:5rem;
+
+      font-weight:900;
+
+      background:var(--gradient);
+
+      -webkit-background-clip:text;
+
+      -webkit-text-fill-color:transparent;
+    }
+
+    @keyframes float{
+
+      0%,100%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-18px);
+      }
+    }
+
+    .section{
+
+      max-width:1400px;
+
+      margin:auto;
+
+      padding:40px 24px 80px;
+    }
+
+    .section-title{
+
+      margin-bottom:40px;
+    }
+
+    .section-title h3{
+
+      font-size:2.2rem;
+
+      margin-bottom:12px;
+    }
+
+    .filters{
+
+      display:flex;
+
+      gap:12px;
+
+      margin-top:24px;
+
+      flex-wrap:wrap;
+    }
+
+    .filter-btn{
+
+      border:none;
+
+      padding:12px 18px;
+
+      border-radius:999px;
+
+      background:#111827;
+
+      color:white;
+
+      cursor:pointer;
+
+      transition:0.3s;
+
+      border:
+      1px solid rgba(255,255,255,0.08);
+    }
+
+    .filter-btn.active{
+
+      background:var(--gradient);
+    }
+
+    .catalog-grid{
+
+      display:grid;
+
+      grid-template-columns:
+      repeat(auto-fit, minmax(340px, 340px));
+
+      gap:28px;
+
+      justify-content:flex-start;
+    }
+
+    .card{
+
+      background:
+      rgba(15,23,42,0.9);
+
+      border:
+      1px solid var(--border);
+
+      border-radius:24px;
+
+      overflow:hidden;
+
+      transition:0.3s;
+    }
+
+    .card:hover{
+
+      transform:translateY(-6px);
+
+      border-color:
+      rgba(0,212,255,0.25);
+    }
+
+    .product-image{
+
+      width:100%;
+
+      height:320px;
+
+      object-fit:cover;
+
+      background:#050816;
+    }
+
+    .card-content{
+
+      padding:24px;
+    }
+
+    .product-code{
+
+      color:var(--primary);
+
+      font-size:0.85rem;
+
+      font-weight:700;
+
+      margin-bottom:10px;
+    }
+
+    .product-header{
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      gap:12px;
+
+      margin-bottom:14px;
+    }
+
+    .product-name{
+
+      font-size:1.4rem;
+
+      font-weight:700;
+    }
+
+    .product-tag{
+
+      padding:8px 14px;
+
+      border-radius:999px;
+
+      font-size:0.75rem;
+
+      font-weight:700;
+
+      background:
+      rgba(0,212,255,0.12);
+
+      color:var(--primary);
+
+      border:
+      1px solid rgba(0,212,255,0.25);
+
+      white-space:nowrap;
+    }
+
+    .description{
+
+      color:var(--muted);
+
+      line-height:1.7;
+
+      margin-bottom:24px;
+    }
+
+    .footer-card{
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      gap:16px;
+
+      flex-wrap:wrap;
+    }
+
+    .price{
+
+      font-size:1.6rem;
+
+      font-weight:800;
+    }
+
+    .buttons{
+
+      display:flex;
+
+      gap:12px;
+    }
+
+    .whatsapp-btn,
+    .view3d-btn{
+
+      border:none;
+
+      cursor:pointer;
+
+      padding:12px 18px;
+
+      border-radius:14px;
+
+      font-weight:700;
+
+      transition:0.3s;
+
+      color:white;
+    }
+
+    .whatsapp-btn{
+
+      background:var(--gradient);
+    }
+
+    .view3d-btn{
+
+      background:#111827;
+    }
+
+    .whatsapp-btn:hover,
+    .view3d-btn:hover{
+
+      transform:scale(1.03);
+    }
+
+    .modal3d{
+
+      position:fixed;
+
+      inset:0;
+
+      background:
+      rgba(0,0,0,0.92);
+
+      display:none;
+
+      align-items:center;
+
+      justify-content:center;
+
+      z-index:99999;
+    }
+
+    .modal-content{
+
+      width:90vw;
+
+      height:90vh;
+
+      background:#050816;
+
+      border-radius:24px;
+
+      overflow:hidden;
+
+      position:relative;
+    }
+
+    #viewer3d{
+
+      width:100%;
+      height:100%;
+    }
+
+    .close-modal{
+
+      position:absolute;
+
+      top:20px;
+
+      right:20px;
+
+      z-index:999;
+
+      border:none;
+
+      width:46px;
+
+      height:46px;
+
+      border-radius:50%;
+
+      background:white;
+
+      cursor:pointer;
+
+      font-size:1.2rem;
+    }
+
+    footer{
+
+      margin-top:80px;
+
+      border-top:
+      1px solid var(--border);
+
+      padding:40px 24px;
+
+      text-align:center;
+
+      color:var(--muted);
+    }
+/* =========================
+   MOBILE RESPONSIVO
+========================= */
+
+@media (max-width: 768px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  .navbar{
+
+    padding:16px;
+  }
+
+  .logo h1{
+
+    font-size:1rem;
+  }
+
+  .logo-icon{
+
+    width:42px;
+    height:42px;
+
+    font-size:0.9rem;
+  }
+
+  .hero{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+    gap:40px;
+
+    padding:
+    60px 20px 50px;
+  }
+
+  .hero h2{
+
+    font-size:2.5rem;
+
+    line-height:1.1;
+  }
+
+  .hero p{
+
+    font-size:0.95rem;
+
+    margin:auto auto 24px;
+  }
+
+  .cube{
+
+    width:180px;
+    height:180px;
+  }
+
+  .cube::before{
+
+    font-size:3.5rem;
+  }
+
+  .orb{
+
+    width:260px;
+    height:260px;
+  }
+
+  .section{
+
+    padding:30px 16px 60px;
+  }
+
+  .section-title h3{
+
+    font-size:1.8rem;
+  }
+
+  .filters{
+
+    gap:10px;
+  }
+
+  .filter-btn{
+
+    padding:10px 16px;
+
+    font-size:0.85rem;
+  }
+
+  .catalog-grid{
+
+    grid-template-columns:1fr;
+
+    gap:22px;
+  }
+
+  .card{
+
+    border-radius:20px;
+  }
+
+  .product-image{
+
+    height:260px;
+  }
+
+  .card-content{
+
+    padding:20px;
+  }
+
+  .product-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:10px;
+  }
+
+  .product-name{
+
+    font-size:1.2rem;
+  }
+
+  .description{
+
+    font-size:0.92rem;
+
+    line-height:1.6;
+  }
+
+  .footer-card{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+  }
+
+  .price{
+
+    font-size:1.4rem;
+  }
+
+  .buttons{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+  }
+
+  .view3d-btn,
+  .whatsapp-btn{
+
+    width:100%;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:14px;
+  }
+
+  .modal-content{
+
+    width:100vw;
+    height:100vh;
+
+    border-radius:0;
+  }
+
+  .close-modal{
+
+    top:14px;
+    right:14px;
+
+    width:42px;
+    height:42px;
+  }
+
+  footer{
+
+    padding:30px 20px;
+
+    font-size:0.9rem;
+  }
+
+}
+
+/* TELAS MUITO PEQUENAS */
+
+@media (max-width: 420px){
+
+  .hero h2{
+
+    font-size:2rem;
+  }
+
+  .product-image{
+
+    height:220px;
+  }
+
+  .card-content{
+
+    padding:18px;
+  }
+
+}
+  </style>
+
+</head>
+
+<body>
+
+<header>
+
+  <nav class="navbar">
+
+    <div class="logo">
+
+      <div class="logo-icon">
+        A3D
+      </div>
+
+      <h1>
+        aoi<span>lab3D</span>
+      </h1>
+
+    </div>
+
+  </nav>
+
+</header>
+
+<section class="hero">
+
+  <div>
+
+    <h2>
+
+      Modelos digitais
+      <span>3D</span>
+
+    </h2>
+
+    <p>
+
+      Catálogo moderno de modelos
+      digitais para impressão 3D.
+
+    </p>
+
+    <a href="#catalogo">
+
+      <button class="btn">
+        Ver Catálogo
+      </button>
+
+    </a>
+
+  </div>
+
+  <div class="hero-visual">
+
+    <div class="orb"></div>
+
+    <div class="cube"></div>
+
+  </div>
+
+</section>
+
+<section
+  class="section"
+  id="catalogo"
+>
+
+  <div class="section-title">
+
+    <h3>
+      Catálogo
+    </h3>
+
+    <div class="filters">
+
+      <button
+        class="filter-btn active"
+        data-filter="all"
+      >
+        Todos
+      </button>
+
+      <button
+        class="filter-btn"
+        data-filter="utilitarios"
+      >
+        Utilitários
+      </button>
+
+      <button
+        class="filter-btn"
+        data-filter="decoracao"
+      >
+        Decoração
+      </button>
+
+    </div>
+
+  </div>
+
+  <div
+    class="catalog-grid"
+    id="productGrid"
+  ></div>
+
+</section>
+
+<footer>
+
+  © 2026 aoilab3D
+
+</footer>
+
+<div
+  class="modal3d"
+  id="modal3d"
+>
+
+  <div class="modal-content">
+
+    <button
+      class="close-modal"
+      onclick="close3DViewer()"
+    >
+      ✕
+    </button>
+
+    <div id="viewer3d"></div>
+
+  </div>
+
+</div>
+
+<script type="module">
+
+import * as THREE from 'three';
+
+import { OrbitControls }
+from 'three/addons/controls/OrbitControls.js';
+
+import { GLTFLoader }
+from 'three/addons/loaders/GLTFLoader.js';
+
+// PRODUTOS
+
+const products = [
+
+  {
+
+    code:"A3D-001",
+
+    name:"Peixe",
+
+    category:"utilitarios",
+
+    description:
+    "Modelo 3D de peixe.",
+
+    price:"R$ 29,90",
+
+    file:"assets/peixe.glb",
+
+    thumbnail:"assets/peixe.png"
+
+  },
+
+  {
+
+    code:"A3D-002",
+
+    name:"Shark",
+
+    category:"decoracao",
+
+    description:
+    "Modelo 3D de tubarão.",
+
+    price:"R$ 45,00",
+
+    file:"assets/shark.glb",
+
+    thumbnail:"assets/shark.png"
+
+  }
+
+];
+
+const grid =
+document.getElementById(
+  "productGrid"
+);
+
+// RENDER
+
+function renderProducts(
+  filter="all"
+){
+
+  grid.innerHTML = "";
+
+  const filtered =
+
+  filter === "all"
+
+  ? products
+
+  : products.filter(
+      product =>
+      product.category === filter
+    );
+
+  filtered.forEach((product)=>{
+
+    const card =
+    document.createElement("div");
+
+    card.className = "card";
+
+    card.innerHTML = `
+
+      <img
+        class="product-image"
+        src="${product.thumbnail}"
+        alt="${product.name}"
+        loading="lazy"
+      >
+
+      <div class="card-content">
+
+        <div class="product-code">
+          ${product.code}
+        </div>
+
+        <div class="product-header">
+
+          <div class="product-name">
+            ${product.name}
+          </div>
+
+          <div class="product-tag">
+
+            ${
+              product.category ===
+              "utilitarios"
+
+              ? "Utilitário"
+
+              : "Decoração"
+            }
+
+          </div>
+
+        </div>
+
+        <div class="description">
+          ${product.description}
+        </div>
+
+        <div class="footer-card">
+
+          <div class="price">
+            ${product.price}
+          </div>
+
+          <div class="buttons">
+
+            <button
+              class="view3d-btn"
+              data-model="${product.file}"
+            >
+              Visualizar 3D
+            </button>
+
+            <a
+              href="https://wa.me/5516992401080?text=${encodeURIComponent(
+
+`Olá! Tudo bem?
+
+Estou interessado no modelo:
+
+Código: ${product.code}
+Nome: ${product.name}
+Descrição: ${product.description}
+Valor: ${product.price}`
+
+              )}"
+              target="_blank"
+            >
+
+              <button class="whatsapp-btn">
+                WhatsApp
+              </button>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+    grid.appendChild(card);
+
+  });
+
+  init3DButtons();
+
+}
+
+// FILTROS
+
+const filterButtons =
+document.querySelectorAll(
+  ".filter-btn"
+);
+
+filterButtons.forEach((button)=>{
+
+  button.addEventListener(
+    "click",
+    ()=>{
+
+      document
+      .querySelector(".filter-btn.active")
+      ?.classList.remove("active");
+
+      button.classList.add(
+        "active"
+      );
+
+      renderProducts(
+        button.dataset.filter
+      );
+
+    }
+  );
+
+});
+
+// MODAL
+
+const modal =
+document.getElementById(
+  "modal3d"
+);
+
+const viewerContainer =
+document.getElementById(
+  "viewer3d"
+);
+
+let renderer,
+scene,
+camera,
+controls,
+animationId;
+
+// BOTÕES 3D
+
+function init3DButtons(){
+
+  document
+  .querySelectorAll(".view3d-btn")
+  .forEach((button)=>{
+
+    button.onclick = ()=>{
+
+      open3DViewer(
+        button.dataset.model
+      );
+
+    };
+
+  });
+
+}
+
+// OPEN VIEWER
+
+function open3DViewer(
+  modelFile
+){
+
+  modal.style.display =
+  "flex";
+
+  viewerContainer.innerHTML = "";
+
+  scene =
+  new THREE.Scene();
+
+  scene.background =
+  new THREE.Color(0x050816);
+
+  camera =
+  new THREE.PerspectiveCamera(
+    35,
+    viewerContainer.clientWidth /
+    viewerContainer.clientHeight,
+    0.01,
+    1000
+  );
+
+  renderer =
+  new THREE.WebGLRenderer({
+
+    antialias:false,
+
+    powerPreference:
+    "high-performance"
+
+  });
+
+  renderer.setPixelRatio(
+    Math.min(
+      window.devicePixelRatio,
+      1.5
+    )
+  );
+
+  renderer.setSize(
+
+    viewerContainer.clientWidth,
+
+    viewerContainer.clientHeight
+
+  );
+
+  renderer.outputColorSpace =
+  THREE.SRGBColorSpace;
+
+  viewerContainer.appendChild(
+    renderer.domElement
+  );
+
+  controls =
+  new OrbitControls(
+
+    camera,
+
+    renderer.domElement
+
+  );
+
+  controls.enableDamping = false;
+
+  controls.autoRotate = true;
+
+  controls.autoRotateSpeed = 1.5;
+
+  controls.enablePan = false;
+
+  const ambientLight =
+  new THREE.AmbientLight(
+    0xffffff,
+    2.5
+  );
+
+  scene.add(ambientLight);
+
+  const directionalLight =
+  new THREE.DirectionalLight(
+    0xffffff,
+    2
+  );
+
+  directionalLight.position.set(
+    5,
+    5,
+    5
+  );
+
+  scene.add(directionalLight);
+
+  const loader =
+  new GLTFLoader();
+
+  loader.load(
+
+    modelFile,
+
+    (gltf)=>{
+
+      const model =
+      gltf.scene;
+
+      scene.add(model);
+
+      const box =
+      new THREE.Box3()
+      .setFromObject(model);
+
+      const sphere =
+      box.getBoundingSphere(
+        new THREE.Sphere()
+      );
+
+      const center =
+      sphere.center;
+
+      const radius =
+      sphere.radius;
+
+      model.position.x -= center.x;
+      model.position.y -= center.y;
+      model.position.z -= center.z;
+
+      const fov =
+      camera.fov *
+      (Math.PI / 180);
+
+      let distance =
+      radius /
+      Math.sin(fov / 2);
+
+      distance *= 0.8;
+
+      camera.position.set(
+        0,
+        0,
+        distance
+      );
+
+      controls.target.set(
+        0,
+        0,
+        0
+      );
+
+      animate();
+
+    }
+
+  );
+
+}
+
+// CLOSE
+
+window.close3DViewer =
+function(){
+
+  modal.style.display =
+  "none";
+
+  cancelAnimationFrame(
+    animationId
+  );
+
+  renderer?.dispose();
+
+  viewerContainer.innerHTML = "";
+
+};
+
+// ANIMATE
+
+function animate(){
+
+  animationId =
+  requestAnimationFrame(
+    animate
+  );
+
+  controls.update();
+
+  renderer.render(
+    scene,
+    camera
+  );
+
+}
+
+// INIT
+
+renderProducts();
+
+</script>
+
+</body>
+
+</html>
