@@ -2074,24 +2074,38 @@ function open3DViewer(
   const ambientLight =
   new THREE.AmbientLight(
     0xffffff,
-    0.7
+    0.45
   );
 
   scene.add(ambientLight);
 
-  const directionalLight =
-  new THREE.DirectionalLight(
-    0xffffff,
-    2
-  );
+const directionalLight =
+new THREE.DirectionalLight(
+  0xffffff,
+  3.5
+);
 
-  directionalLight.position.set(
-    5,
-    5,
-    5
-  );
+directionalLight.position.set(
+  8,
+  10,
+  6
+);
 
-  scene.add(directionalLight);
+scene.add(directionalLight);
+
+const rimLight =
+new THREE.DirectionalLight(
+  0x60a5fa,
+  1.2
+);
+
+rimLight.position.set(
+  -6,
+  2,
+  -5
+);
+
+scene.add(rimLight);
 
 const dracoLoader =
 new DRACOLoader();
