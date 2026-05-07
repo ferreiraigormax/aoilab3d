@@ -1,32 +1,12 @@
 [
   {
     "code":"AOI-1",
-    "name":"Peixe",
-    "category":"utilitarios",
-    "description":"Modelo 3D de peixe.",
-    "price":"R$ 29,90",
-    "file":"assets/3D/peixe.glb",
-    "thumbnail":"assets/img/peixe.png"
-  },
-
-  {
-    "code":"AOI-2",
-    "name":"Shark",
-    "category":"decoracao",
-    "description":"Modelo 3D de tubarão.",
-    "price":"R$ 45,00",
-    "file":"assets/3D/shark.glb",
-    "thumbnail":"assets/img/shark.png"
-  },
-    {
-    "code":"AOI-3",
-    "name":"Teste",
-    "category":"decoracao",
-    "description":"Modelo 3D de tubarão.",
-    "price":"R$ 45,00",
-    "file":"assets/3D/shark.glb",
-    "thumbnail":"assets/img/shark.png"
+    "name":"Santa Maria",
+    "category":"religioso",
+    "description":"Com linhas suaves e acabamento delicado, a peça traz a figura da Virgem Maria em posição de oração, envolta por um manto ricamente detalhado com padrões florais em relevo.",
+    "price":"R$ 50,00",
+    "file":"assets/3D/santa.glb",
+    "thumbnail":"assets/img/santa.png"
   }
-
 
 ]
