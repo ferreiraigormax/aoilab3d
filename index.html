@@ -1730,57 +1730,12 @@ document.getElementById(
 async function loadProducts(){
 
   const response =
-  await fetch("assets/products.xml");
-
-  const xmlText =
-  await response.text();
-
-  const parser =
-  new DOMParser();
-
-  const xml =
-  parser.parseFromString(
-    xmlText,
-    "application/xml"
+  await fetch(
+    "assets/products.json"
   );
-
-  const productNodes =
-  xml.querySelectorAll("product");
 
   products =
-  Array.from(productNodes).map(
-    (product)=>({
-
-      code:
-      product.querySelector("code")
-      ?.textContent.trim(),
-
-      name:
-      product.querySelector("name")
-      ?.textContent.trim(),
-
-      category:
-      product.querySelector("category")
-      ?.textContent.trim(),
-
-      description:
-      product.querySelector("description")
-      ?.textContent.trim(),
-
-      price:
-      product.querySelector("price")
-      ?.textContent.trim(),
-
-      file:
-      product.querySelector("file")
-      ?.textContent.trim(),
-
-      thumbnail:
-      product.querySelector("thumbnail")
-      ?.textContent.trim()
-
-    })
-  );
+  await response.json();
 
   renderProducts();
 
