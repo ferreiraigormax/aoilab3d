@@ -1593,30 +1593,10 @@ img{
       Catálogo
     </h3>
 
-    <div class="filters">
-
-      <button
-        class="filter-btn active"
-        data-filter="all"
-      >
-        Todos
-      </button>
-
-      <button
-        class="filter-btn"
-        data-filter="utilitarios"
-      >
-        Utilitários
-      </button>
-
-      <button
-        class="filter-btn"
-        data-filter="decoracao"
-      >
-        Decoração
-      </button>
-
-    </div>
+<div
+  class="filters"
+  id="filters"
+></div>
 
   </div>
 
@@ -1718,6 +1698,8 @@ from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader }
 from 'three/addons/loaders/GLTFLoader.js';
 
+
+
 // PRODUTOS
 
 let products = [];
@@ -1737,11 +1719,79 @@ async function loadProducts(){
   products =
   await response.json();
 
-  renderProducts();
+renderFilters();
+
+renderProducts();
 
 }
 
 // RENDER
+function renderFilters(){
+
+  const filtersContainer =
+  document.getElementById(
+    "filters"
+  );
+
+  filtersContainer.innerHTML = "";
+
+  const allButton =
+  document.createElement("button");
+
+  allButton.className =
+  "filter-btn active";
+
+  allButton.dataset.filter =
+  "all";
+
+  allButton.textContent =
+  "Todos";
+
+  filtersContainer.appendChild(
+    allButton
+  );
+
+  const categories =
+
+    [...new Set(
+      products.map(
+        product =>
+        product.category
+      )
+    )];
+
+  categories.forEach((category)=>{
+
+    const button =
+    document.createElement(
+      "button"
+    );
+
+    button.className =
+    "filter-btn";
+
+    button.dataset.filter =
+    category;
+
+    button.textContent =
+
+      category
+      .charAt(0)
+      .toUpperCase()
+
+      +
+
+      category.slice(1);
+
+    filtersContainer.appendChild(
+      button
+    );
+
+  });
+
+  initFilters();
+
+}
 
 function renderProducts(
   filter="all"
@@ -1790,16 +1840,18 @@ function renderProducts(
 
           <div class="product-tag">
 
-            ${
-              product.category ===
-              "utilitarios"
+  ${
+    product.category
+    .charAt(0)
+    .toUpperCase()
 
-              ? "Utilitário"
+    +
 
-              : "Decoração"
-            }
+    product.category
+    .slice(1)
+  }
 
-          </div>
+</div>
 
         </div>
 
@@ -1862,33 +1914,39 @@ Valor: ${product.price}`
 
 // FILTROS
 
-const filterButtons =
-document.querySelectorAll(
-  ".filter-btn"
-);
+function initFilters(){
 
-filterButtons.forEach((button)=>{
-
-  button.addEventListener(
-    "click",
-    ()=>{
-
-      document
-      .querySelector(".filter-btn.active")
-      ?.classList.remove("active");
-
-      button.classList.add(
-        "active"
-      );
-
-      renderProducts(
-        button.dataset.filter
-      );
-
-    }
+  const filterButtons =
+  document.querySelectorAll(
+    ".filter-btn"
   );
 
-});
+  filterButtons.forEach((button)=>{
+
+    button.addEventListener(
+      "click",
+      ()=>{
+
+        document
+        .querySelector(".filter-btn.active")
+        ?.classList.remove(
+          "active"
+        );
+
+        button.classList.add(
+          "active"
+        );
+
+        renderProducts(
+          button.dataset.filter
+        );
+
+      }
+    );
+
+  });
+
+}
 
 // MODAL
 
