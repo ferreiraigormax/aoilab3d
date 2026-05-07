@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<products>
+
+  <product>
+
+    <code>A3D-001</code>
+
+    <name>Peixe</name>
+
+    <category>utilitarios</category>
+
+    <description>
+      Modelo 3D de peixe.
+    </description>
+
+    <price>R$ 29,90</price>
+
+    <file>
+      assets/peixe.glb
+    </file>
+
+    <thumbnail>
+      assets/peixe.png
+    </thumbnail>
+
+  </product>
+
+  <product>
+
+    <code>A3D-002</code>
+
+    <name>Shark</name>
+
+    <category>decoracao</category>
+
+    <description>
+      Modelo 3D de tubarão.
+    </description>
+
+    <price>R$ 45,00</price>
+
+    <file>
+      assets/shark.glb
+    </file>
+
+    <thumbnail>
+      assets/shark.png
+    </thumbnail>
+
+  </product>
+
+    <product>
+
+    <code>A3D-002</code>
+
+    <name>Bla bla bla</name>
+
+    <category>decoracao</category>
+
+    <description>
+      Modelo 3D bla bla bla
+    </description>
+
+    <price>R$ 50,00</price>
+
+    <file>
+      assets/peixe.glb
+    </file>
+
+    <thumbnail>
+      assets/peixe.png
+    </thumbnail>
+
+  </product>
+
+</products>
