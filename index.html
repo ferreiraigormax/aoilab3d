@@ -657,9 +657,12 @@
 }
   position:fixed;
 
-  top:max(14px, env(safe-area-inset-top));
-
-  right:max(14px, env(safe-area-inset-right));
+ top:calc(
+  env(safe-area-inset-top) + 20px
+);
+right:calc(
+  env(safe-area-inset-right) + 20px
+);
 
   z-index:999999;
 
@@ -1006,7 +1009,43 @@
 
   margin-bottom:12px;
 }
-    
+    .shipping-highlight{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:10px;
+
+  padding:14px 18px;
+
+  border-radius:18px;
+
+  margin-bottom:20px;
+
+  background:
+  rgba(0,212,255,0.12);
+
+  border:
+  1px solid rgba(0,212,255,0.22);
+
+  color:#e2f7ff;
+
+  font-weight:700;
+
+  font-size:1rem;
+}
+
+.shipping-text{
+
+  color:var(--muted);
+
+  line-height:1.8;
+
+  font-size:1rem;
+}
 /* =========================
    MOBILE RESPONSIVO
 ========================= */
@@ -1031,7 +1070,9 @@
 
   text-align:center;
 
-  padding:32px 24px;
+  padding:36px 22px;
+
+  gap:24px;
 }
 
 .shipping-card h3{
@@ -1636,17 +1677,12 @@ img{
 
   <div class="shipping-card">
 
-    <div class="shipping-icon">
-
-      🚚
-
-    </div>
 
     <div class="shipping-content">
 
       <div class="shipping-badge">
 
-        Informações de Frete
+        Envio
 
       </div>
 
@@ -1656,21 +1692,20 @@ img{
 
       </h3>
 
-      <p>
+<div class="shipping-highlight">
 
-        Para a cidade de
-        <strong>Sertãozinho-SP</strong>,
-        o frete é totalmente gratuito.
+  🚚 Frete grátis para Sertãozinho-SP
 
-      </p>
+</div>
 
-      <p>
+<p class="shipping-text">
 
-        Para demais cidades,
-        consulte disponibilidade e valores
-        diretamente pelo WhatsApp.
+  Para demais cidades,
+  consulte disponibilidade
+  e valores diretamente
+  pelo WhatsApp.
 
-      </p>
+</p>
 
     </div>
 
@@ -2015,11 +2050,57 @@ function init3DButtons(){
 
 }
 
+function disposeViewer(){
+
+  cancelAnimationFrame(
+    animationId
+  );
+
+  controls?.dispose();
+
+  renderer?.dispose();
+
+  scene?.traverse((object)=>{
+
+    if(object.geometry){
+
+      object.geometry.dispose();
+
+    }
+
+    if(object.material){
+
+      if(
+        Array.isArray(
+          object.material
+        )
+      ){
+
+        object.material.forEach(
+          material =>
+          material.dispose()
+        );
+
+      }else{
+
+        object.material.dispose();
+
+      }
+
+    }
+
+  });
+
+  viewerContainer.innerHTML = "";
+
+}
 // OPEN VIEWER
 
 function open3DViewer(
+
   modelFile
 ){
+  disposeViewer();
 
   modal.style.display =
   "flex";
@@ -2227,16 +2308,9 @@ function(){
   modal.style.display =
   "none";
 
-  cancelAnimationFrame(
-    animationId
-  );
-
-  renderer?.dispose();
-
-  viewerContainer.innerHTML = "";
+  disposeViewer();
 
 };
-
 // ANIMATE
 
 function animate(){
