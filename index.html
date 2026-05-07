@@ -99,29 +99,97 @@
       border-bottom:
       1px solid var(--border);
     }
+    .hero-content{
 
-    .navbar{
+  position:relative;
 
-      max-width:1400px;
+  z-index:2;
+}
 
-      margin:auto;
+.hero-logo{
 
-      padding:18px 24px;
+  width:220px;
 
-      display:flex;
+  margin-bottom:30px;
 
-      align-items:center;
+  filter:
+  drop-shadow(
+    0 0 30px
+    rgba(0,212,255,0.25)
+  );
+}
 
-      justify-content:space-between;
-    }
+.hero-glow{
+
+  position:absolute;
+
+  width:520px;
+
+  height:520px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(0,212,255,0.18),
+    transparent 70%
+  );
+
+  filter:blur(40px);
+}
+
+.hero-card{
+
+  position:relative;
+
+  width:520px;
+
+  height:320px;
+
+  border-radius:32px;
+
+  background:
+  linear-gradient(
+    145deg,
+    rgba(15,23,42,0.95),
+    rgba(5,8,22,0.98)
+  );
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  overflow:hidden;
+
+  box-shadow:
+  0 0 60px rgba(0,212,255,0.08);
+}
+
+.hero-card img{
+
+  width:85%;
+
+  object-fit:contain;
+}
+
+
 
     .logo{
 
-      display:flex;
+ .logo-img{
 
-      align-items:center;
+  width:180px;
 
-      gap:14px;
+  object-fit:contain;
+
+  display:block;
+}
     }
 
     .logo-icon{
@@ -614,20 +682,237 @@
 
       color:var(--muted);
     }
+
+/* =========================
+   PROJETO PERSONALIZADO
+========================= */
+
+.custom-project-section{
+
+  max-width:1400px;
+
+  margin:auto;
+
+  padding:0 24px 50px;
+}
+
+.custom-project-card{
+
+  position:relative;
+
+  overflow:hidden;
+
+  border-radius:32px;
+
+  padding:50px;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(0,212,255,0.08),
+    rgba(124,58,237,0.08)
+  );
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  display:grid;
+
+  grid-template-columns:
+  180px 1fr;
+
+  gap:40px;
+
+  align-items:center;
+}
+
+.custom-project-card::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+  radial-gradient(
+    circle at top right,
+    rgba(0,212,255,0.12),
+    transparent 40%
+  );
+
+  pointer-events:none;
+}
+
+.custom-project-left{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+}
+
+.custom-icon{
+
+  width:120px;
+
+  height:120px;
+
+  border-radius:28px;
+
+  background:var(--gradient);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:4rem;
+
+  color:white;
+
+  box-shadow:
+  0 0 40px rgba(0,212,255,0.25);
+}
+
+.custom-project-content{
+
+  position:relative;
+
+  z-index:2;
+}
+
+.custom-project-badge{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:10px 16px;
+
+  border-radius:999px;
+
+  margin-bottom:20px;
+
+  background:
+  rgba(0,212,255,0.12);
+
+  border:
+  1px solid rgba(0,212,255,0.25);
+
+  color:var(--primary);
+
+  font-size:0.85rem;
+
+  font-weight:700;
+}
+
+.custom-project-card h3{
+
+  font-size:2.5rem;
+
+  line-height:1.1;
+
+  margin-bottom:18px;
+}
+
+.custom-project-card p{
+
+  color:var(--muted);
+
+  line-height:1.8;
+
+  margin-bottom:32px;
+
+  max-width:700px;
+}
+
+.custom-project-btn{
+
+  border:none;
+
+  cursor:pointer;
+
+  padding:16px 28px;
+
+  border-radius:16px;
+
+  font-weight:700;
+
+  font-size:1rem;
+
+  background:var(--gradient);
+
+  color:white;
+
+  transition:0.3s;
+}
+
+.custom-project-btn:hover{
+
+  transform:translateY(-3px);
+}
+    
 /* =========================
    MOBILE RESPONSIVO
 ========================= */
 
 @media (max-width: 768px){
+  .custom-project-section{
+
+  padding:0 16px 30px;
+  .logo-img{
+
+  width:140px;
+}
+
+.hero-logo{
+
+  width:180px;
+
+  margin:auto auto 24px;
+}
+
+.hero-card{
+
+  width:100%;
+
+  max-width:420px;
+
+  height:240px;
+}
+}
+
+.custom-project-card{
+
+  grid-template-columns:1fr;
+
+  text-align:center;
+
+  padding:36px 24px;
+
+  gap:24px;
+}
+
+.custom-project-card h3{
+
+  font-size:2rem;
+}
+
+.custom-project-btn{
+
+  width:100%;
+}
 
   body{
     overflow-x:hidden;
   }
 
-  .navbar{
-
-    padding:16px;
-  }
+ 
 
   .logo h1{
 
@@ -831,6 +1116,219 @@
   }
 
 }
+/* =========================
+   FIX OVERFLOW MOBILE
+========================= */
+
+html,
+body{
+
+  width:100%;
+
+  overflow-x:hidden;
+}
+
+*{
+
+  max-width:100%;
+}
+
+.hero{
+
+  overflow:hidden;
+}
+
+.hero-visual{
+
+  width:100%;
+
+  overflow:hidden;
+}
+
+.hero-glow{
+
+  max-width:100vw;
+}
+
+.hero-card{
+
+  max-width:100%;
+}
+
+.catalog-grid{
+
+  width:100%;
+}
+
+.section,
+.custom-project-section,
+.hero,
+.navbar{
+
+  width:100%;
+}
+
+img{
+
+  max-width:100%;
+
+  height:auto;
+
+  display:block;
+}
+/* =========================
+   LOADER 3D
+========================= */
+
+.viewer-loader{
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:10;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:20px;
+
+  background:
+  rgba(5,8,22,0.92);
+
+  backdrop-filter:blur(8px);
+}
+
+.loader-spinner{
+
+  width:70px;
+
+  height:70px;
+
+  border-radius:50%;
+
+  border:
+  4px solid rgba(255,255,255,0.08);
+
+  border-top:
+  4px solid #2563eb;
+
+  animation:
+  spin 1s linear infinite;
+}
+
+.viewer-loader span{
+
+  color:white;
+
+  font-size:1rem;
+
+  font-weight:600;
+
+  letter-spacing:0.5px;
+}
+
+@keyframes spin{
+
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+  body{
+
+    overflow-x:hidden;
+  }
+
+  .hero{
+
+    grid-template-columns:1fr;
+
+    padding:
+    60px 16px 50px;
+
+    gap:40px;
+  }
+
+  .hero h2{
+
+    font-size:2.5rem;
+
+    line-height:1.1;
+  }
+
+  .hero-card{
+
+    width:100%;
+
+    max-width:100%;
+
+    height:220px;
+  }
+
+  .hero-glow{
+
+    width:260px;
+    height:260px;
+  }
+
+  .catalog-grid{
+
+    grid-template-columns:1fr;
+  }
+
+  .card{
+
+    width:100%;
+  }
+
+  .product-image{
+
+    height:240px;
+  }
+
+  .buttons{
+
+    flex-direction:column;
+
+    width:100%;
+  }
+
+  .view3d-btn,
+  .whatsapp-btn{
+
+    width:100%;
+  }
+
+  .custom-project-card{
+
+    grid-template-columns:1fr;
+
+    padding:32px 20px;
+  }
+
+  .modal-content{
+
+    width:100vw;
+    height:100vh;
+
+    border-radius:0;
+  }
+
+}
   </style>
 
 </head>
@@ -839,19 +1337,7 @@
 
 <header>
 
-  <nav class="navbar">
-
-    <div class="logo">
-
-      <div class="logo-icon">
-        A3D
-      </div>
-
-      <h1>
-        aoi<span>lab3D</span>
-      </h1>
-
-    </div>
+</div>
 
   </nav>
 
@@ -859,20 +1345,16 @@
 
 <section class="hero">
 
-  <div>
-
+  <div class="hero-content">
     <h2>
 
       Modelos digitais
-      <span>3D</span>
+      para <span>impressão 3D</span>
 
     </h2>
 
     <p>
-
-      Catálogo moderno de modelos
-      digitais para impressão 3D.
-
+      Explore nosso catálogo de modelos 3D prontos para impressão. Você pode visualizar os modelos em 3D, filtrar por categorias e solicitar atendimento diretamente pelo WhatsApp de forma rápida e prática.
     </p>
 
     <a href="#catalogo">
@@ -887,14 +1369,75 @@
 
   <div class="hero-visual">
 
-    <div class="orb"></div>
+    <div class="hero-glow"></div>
 
-    <div class="cube"></div>
+    <div class="hero-card">
+
+      <img
+        src="assets/logo.png"
+        alt="aoilab3D"
+      >
+
+    </div>
 
   </div>
 
 </section>
+<section class="custom-project-section">
 
+  <div class="custom-project-card">
+
+    <div class="custom-project-left">
+
+      <div class="custom-icon">
+
+        ✦
+
+      </div>
+
+    </div>
+
+    <div class="custom-project-content">
+
+      <div class="custom-project-badge">
+
+        Projeto Personalizado
+
+      </div>
+
+      <h3>
+
+        Não encontrou o modelo ideal?
+
+      </h3>
+
+      <p>
+
+        Desenvolvemos modelos 3D personalizados
+        sob demanda para impressão 3D,
+        prototipagem, decoração,
+        utilitários e projetos exclusivos.
+
+      </p>
+
+      <a
+        href="https://wa.me/5516992401080?text=Olá!%20Tudo%20bem?%20Gostaria%20de%20solicitar%20um%20orçamento%20personalizado."
+        target="_blank"
+      >
+
+        <button class="custom-project-btn">
+
+          Solicitar orçamento pelo WhatsApp
+
+        </button>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
 <section
   class="section"
   id="catalogo"
@@ -959,7 +1502,18 @@
     >
       ✕
     </button>
+<div
+  class="viewer-loader"
+  id="viewerLoader"
+>
 
+  <div class="loader-spinner"></div>
+
+  <span>
+    Carregando modelo 3D...
+  </span>
+
+</div>
     <div id="viewer3d"></div>
 
   </div>
@@ -1220,6 +1774,13 @@ function open3DViewer(
 
   modal.style.display =
   "flex";
+      const viewerLoader =
+    document.getElementById(
+      "viewerLoader"
+    );
+
+    viewerLoader.style.display =
+    "flex";
 
   viewerContainer.innerHTML = "";
 
@@ -1309,69 +1870,81 @@ function open3DViewer(
 
   scene.add(directionalLight);
 
-  const loader =
+  const gltfLoader =
   new GLTFLoader();
 
-  loader.load(
+gltfLoader.load(
 
-    modelFile,
+  modelFile,
 
-    (gltf)=>{
+  (gltf)=>{
 
-      const model =
-      gltf.scene;
+    const model =
+    gltf.scene;
 
-      scene.add(model);
+    scene.add(model);
 
-      const box =
-      new THREE.Box3()
-      .setFromObject(model);
+    const box =
+    new THREE.Box3()
+    .setFromObject(model);
 
-      const sphere =
-      box.getBoundingSphere(
-        new THREE.Sphere()
-      );
+    const sphere =
+    box.getBoundingSphere(
+      new THREE.Sphere()
+    );
 
-      const center =
-      sphere.center;
+    const center =
+    sphere.center;
 
-      const radius =
-      sphere.radius;
+    const radius =
+    sphere.radius;
 
-      model.position.x -= center.x;
-      model.position.y -= center.y;
-      model.position.z -= center.z;
+    model.position.x -= center.x;
+    model.position.y -= center.y;
+    model.position.z -= center.z;
 
-      const fov =
-      camera.fov *
-      (Math.PI / 180);
+    const fov =
+    camera.fov *
+    (Math.PI / 180);
 
-      let distance =
-      radius /
-      Math.sin(fov / 2);
+    let distance =
+    radius /
+    Math.sin(fov / 2);
 
-      distance *= 0.8;
+    distance *= 1;
 
-      camera.position.set(
-        0,
-        0,
-        distance
-      );
+    camera.position.set(
+      0,
+      0,
+      distance
+    );
 
-      controls.target.set(
-        0,
-        0,
-        0
-      );
+    controls.target.set(
+      0,
+      0,
+      0
+    );
 
-      animate();
+    animate();
 
-    }
+    viewerLoader.style.display =
+    "none";
 
-  );
+  },
 
+  undefined,
+
+  (error)=>{
+
+    console.error(error);
+
+    viewerLoader.style.display =
+    "none";
+
+  }
+
+);
 }
-
 // CLOSE
 
 window.close3DViewer =
