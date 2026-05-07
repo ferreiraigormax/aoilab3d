@@ -5,8 +5,19 @@
     "category":"religioso",
     "description":"Com linhas suaves e acabamento delicado, a peça traz a figura da Virgem Maria em posição de oração, envolta por um manto ricamente detalhado com padrões florais em relevo.",
     "price":"R$ 50,00",
+    "file":"assets/3D/santa-v1.glb",
+    "thumbnail":"assets/img/santa.png"
+  },
+    {
+    "code":"AOI-1",
+    "name":"Santa Maria 2",
+    "category":"religioso",
+    "description":"Com linhas suaves e acabamento delicado, a peça traz a figura da Virgem Maria em posição de oração, envolta por um manto ricamente detalhado com padrões florais em relevo.",
+    "price":"R$ 50,00",
     "file":"assets/3D/santa.glb",
     "thumbnail":"assets/img/santa.png"
   }
+
+
 
 ]
