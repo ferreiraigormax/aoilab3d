@@ -16,5 +16,14 @@
     "price":"R$ 100,00",
     "file":"assets/3D/JulioCesar-v4.glb",
     "thumbnail":"assets/img/JulioCesar.png"
+  },
+      {
+    "code":"AOI-3",
+    "name":"CHAVEIRO CAPIVARA",
+    "category":"FOFURA",
+    "description":"Conheça o roedor mais relaxado do mundo! Esta Capivara estilizada foi projetada para ser a melhor companheira de mesa ou presente.",
+    "price":"R$ 15,00",
+    "file":"assets/3D/Capybara.glb",
+    "thumbnail":"assets/img/Capybara.png"
   }
 ]
