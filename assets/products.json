@@ -10,11 +10,11 @@
   },
     {
     "code":"AOI-2",
-    "name":"JÚLIO CÉSAR",
+    "name":"JULIO CESAR",
     "category":"decoracao",
     "description":"Uma escultura de Júlio César, com 20cm de altura, mas escalável até 25cm. Ideal para presentear junto com um livro.",
     "price":"R$ 100,00",
-    "file":"assets/3D/JulioCesar.glb",
+    "file":"assets/3D/JulioCesar-v4.glb",
     "thumbnail":"assets/img/JulioCesar.png"
   }
 ]
