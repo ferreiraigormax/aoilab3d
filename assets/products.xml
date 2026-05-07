@@ -17,11 +17,11 @@
     <price>R$ 29,90</price>
 
     <file>
-      assets/peixe.glb
+      assets/3D/peixe.glb
     </file>
 
     <thumbnail>
-      assets/peixe.png
+      assets/img/peixe.png
     </thumbnail>
 
   </product>
@@ -41,11 +41,11 @@
     <price>R$ 45,00</price>
 
     <file>
-      assets/shark.glb
+      assets/3D/shark.glb
     </file>
 
     <thumbnail>
-      assets/shark.png
+      assets/img/shark.png
     </thumbnail>
 
   </product>
@@ -65,11 +65,11 @@
     <price>R$ 50,00</price>
 
     <file>
-      assets/peixe.glb
+      assets/3D/peixe.glb
     </file>
 
     <thumbnail>
-      assets/peixe.png
+      assets/img/peixe.png
     </thumbnail>
 
   </product>
