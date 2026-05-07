@@ -1698,6 +1698,9 @@ from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader }
 from 'three/addons/loaders/GLTFLoader.js';
 
+import { DRACOLoader }
+from 'three/addons/loaders/DRACOLoader.js';
+
 
 
 // PRODUTOS
@@ -2090,8 +2093,19 @@ function open3DViewer(
 
   scene.add(directionalLight);
 
-  const gltfLoader =
-  new GLTFLoader();
+const dracoLoader =
+new DRACOLoader();
+
+dracoLoader.setDecoderPath(
+  'https://www.gstatic.com/draco/v1/decoders/'
+);
+
+const gltfLoader =
+new GLTFLoader();
+
+gltfLoader.setDRACOLoader(
+  dracoLoader
+);
 
 gltfLoader.load(
 
