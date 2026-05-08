@@ -1,0 +1,93 @@
+[
+  
+  {
+    "code":"AOI-1",
+    "name":"PORTA CANETAS CANO RACHADO",
+    "category":"utilitários",
+    "description":"Traga um toque do Reino do Cogumelo para sua mesa com este exclusivo Porta-Canetas Cano Rachado.",
+    "price":"R$ 50,00",
+    "file":"assets/3D/cano.glb",
+    "thumbnail":"assets/img/cano.png"
+  },
+    {
+    "code":"AOI-2",
+    "name":"FUNKO POP PERSONALIZADO",
+    "category":"personalizados",
+    "description":"Através de uma fotografia, nós criamos o seu boneco no estilo Funko Pop",
+    "price":"R$ 100,00",
+    "file":"assets/3D/funko.glb",
+    "thumbnail":"assets/img/funko.png"
+  },
+      {
+    "code":"AOI-3",
+    "name":"CHAVEIRO CAPIVARA",
+    "category":"chaveiros",
+    "description":"Conheça o roedor mais relaxado do mundo! Esta Capivara estilizada foi projetada para ser a melhor companheira de mesa ou presente.",
+    "price":"R$ 15,00",
+    "file":"assets/3D/Capybara.glb",
+    "thumbnail":"assets/img/Capybara.png"
+  },
+      {
+    "code":"AOI-4",
+    "name":"SIMBOLO PSICOLOGIA",
+    "category":"psicologia",
+    "description":"Esta é a peça decorativa perfeita para qualquer psicólogo ou profissional de saúde mental.",
+    "price":"R$ 50,00",
+    "file":"assets/3D/psico.glb",
+    "thumbnail":"assets/img/psico.png"
+  },
+      {
+    "code":"AOI-5",
+    "name":"GRATIDÃO",
+    "category":"decoração",
+    "description":"Esta é a peça decorativa perfeita para simbolizar gratidão",
+    "price":"R$ 50,00",
+    "file":"assets/3D/Gratidao.glb",
+    "thumbnail":"assets/img/Gratidao.png"
+  },
+      {
+    "code":"AOI-6",
+    "name":"BOWL DE MALHA",
+    "category":"utilitários",
+    "description":"Apresentando um padrão de malha dinâmico e curvas geométricas limpas, este design encontra o equilíbrio perfeito entre estética e funcionalidade.",
+    "price":"R$ 30,00",
+    "file":"assets/3D/bowl.glb",
+    "thumbnail":"assets/img/bowl.png"
+  },
+      {
+    "code":"AOI-7",
+    "name":"JESUS TE AMA",
+    "category":"religioso",
+    "description":"Placa decorativa escrito Jesus Te ama.",
+    "price":"R$ 30,00",
+    "file":"assets/3D/jesus.glb",
+    "thumbnail":"assets/img/jesus.png"
+  },
+      {
+    "code":"AOI-8",
+    "name":"JOGO DA VELHA",
+    "category":"games",
+    "description":"5x5cm Um conjunto de Jogo da Velha limpo e minimalista. Perfeito como um brinquedo de mesa, jogo de viagem ou presente.",
+    "price":"R$ 30,00",
+    "file":"assets/3D/tictactoe.glb",
+    "thumbnail":"assets/img/tictactoe.png"
+  },
+  {
+    "code":"AOI-9",
+    "name":"JULIO CESAR",
+    "category":"decoração",
+    "description":"Uma escultura de Júlio César, com 20cm de altura, mas escalável até 25cm. Ideal para presentear junto com um livro.",
+    "price":"R$ 100,00",
+    "file":"assets/3D/JulioCesar-v4.glb",
+    "thumbnail":"assets/img/JulioCesar.png"
+  },
+  {
+    "code":"AOI-10",
+    "name":"GATO ELEGANTE",
+    "category":"decoração",
+    "description":"Uma escultura de gato, elegante e moderna para decorar o seu quarto, escritório ou qualquer espaço.",
+    "price":"R$ 30,00",
+    "file":"assets/3D/gato.glb",
+    "thumbnail":"assets/img/gato.png"
+  }
+]
