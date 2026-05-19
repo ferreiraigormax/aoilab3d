@@ -88,6 +88,16 @@ body{
   gap:16px;
 }
 
+.grid-3{
+  display:grid;
+  grid-template-columns:
+    1.6fr
+    .8fr
+    .8fr;
+
+  gap:14px;
+}
+
 .field{
   margin-bottom:18px;
 }
@@ -241,6 +251,10 @@ select:focus{
     grid-template-columns:1fr;
   }
 
+  .grid-3{
+    grid-template-columns:1fr;
+  }
+
   .consumivel-item{
     grid-template-columns:1fr;
   }
@@ -299,24 +313,21 @@ select:focus{
 
       </div>
 
-      <div class="grid-2">
+      <!-- NOVA GRID -->
+      <div class="grid-3">
 
         <div class="field">
           <label>Peso da peça (g)</label>
           <input type="text" id="peso">
         </div>
 
-      </div>
-
-      <div class="grid-2">
-
         <div class="field">
-          <label>Tempo impressão (horas)</label>
+          <label>Horas</label>
           <input type="text" id="tempoHoras">
         </div>
 
         <div class="field">
-          <label>Tempo impressão (minutos)</label>
+          <label>Minutos</label>
           <input type="text" id="tempoMinutos">
         </div>
 
@@ -387,7 +398,7 @@ select:focus{
       </div>
 
       <div class="field">
-        <label>Reserva (%)</label>
+        <label>Margem de segurança (%)</label>
         <input type="text" id="reserva" value="0">
       </div>
 
@@ -457,7 +468,6 @@ select:focus{
     </div>
 
     <!-- RESULTADOS -->
-
     <div class="card result-card">
 
       <div class="highlight cost">
