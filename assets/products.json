@@ -89,5 +89,14 @@
     "price":"R$ 30,00",
     "file":"assets/3D/gato.glb",
     "thumbnail":"assets/img/gato.png"
+  },
+  {
+    "code":"AOI-11",
+    "name":"SUPORTE CELULAR + CARTEIRA",
+    "category":"decoração",
+    "description":"Excelente opção para presentear ou para usar no escritório e na cabeceira da cama. Além do suporte para celular, possui um prático compartimento para acomodar carteira, chaves e pequenos objetos.",
+    "price":"R$ 40,00",
+    "file":"assets/3D/Suporte_celular.glb",
+    "thumbnail":"assets/img/Suporte_celular.png"
   }
 ]
