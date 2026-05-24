@@ -102,10 +102,10 @@
   {
     "code":"AOI-12",
     "name":"SUPORTE CONTROLE",
-    "category":"decoração",
+    "category":"gamer",
     "description":"Excelente opção para presentear ou para usar no setup.",
     "price":"R$ 50,00",
-    "file":"assets/3D/Suporte_controle.glb",
-    "thumbnail":"assets/img/Suporte_controle.png"
+    "file":"assets/3D/suporte_controle.glb",
+    "thumbnail":"assets/img/suporte_controle.png"
   }
 ]
