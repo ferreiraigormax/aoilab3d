@@ -98,5 +98,14 @@
     "price":"R$ 40,00",
     "file":"assets/3D/Suporte_celular.glb",
     "thumbnail":"assets/img/Suporte_celular.png"
+  },
+  {
+    "code":"AOI-12",
+    "name":"SUPORTE CONTROLE",
+    "category":"decoração",
+    "description":"Excelente opção para presentear ou para usar no setup.",
+    "price":"R$ 50,00",
+    "file":"assets/3D/Suporte_controle.glb",
+    "thumbnail":"assets/img/Suporte_controle.png"
   }
 ]
