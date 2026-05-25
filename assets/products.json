@@ -1,15 +1,14 @@
 [
-  
-  {
+   {
     "code":"AOI-1",
-    "name":"PORTA CANETAS CANO RACHADO",
+    "name":"CAIXA DE FIGURINHAS COPA 26",
     "category":"utilitários",
-    "description":"Traga um toque do Reino do Cogumelo para sua mesa com este exclusivo Porta-Canetas Cano Rachado.",
+    "description":"Capacidade: Espaço otimizado para mais de 200 figurinhas. Medidas Externas: 116mm x 80mm x 43mm (L x P x A).",
     "price":"R$ 50,00",
-    "file":"assets/3D/cano.glb",
-    "thumbnail":"assets/img/cano.png"
+    "file":"assets/3D/caixa_figurinhas.glb",
+    "thumbnail":"assets/img/caixa_figurinhas.jpg"
   },
-    {
+      {
     "code":"AOI-2",
     "name":"TRANSPORTADOR DE SACOLAS",
     "category":"utilitários",
@@ -20,15 +19,6 @@
   },
       {
     "code":"AOI-3",
-    "name":"CHAVEIRO CAPIVARA",
-    "category":"chaveiros",
-    "description":"Conheça o roedor mais relaxado do mundo! Esta Capivara estilizada foi projetada para ser a melhor companheira de mesa ou presente.",
-    "price":"R$ 15,00",
-    "file":"assets/3D/Capybara.glb",
-    "thumbnail":"assets/img/Capybara.png"
-  },
-      {
-    "code":"AOI-4",
     "name":"SIMBOLO PSICOLOGIA",
     "category":"psicologia",
     "description":"Esta é a peça decorativa perfeita para qualquer psicólogo ou profissional de saúde mental.",
@@ -37,7 +27,7 @@
     "thumbnail":"assets/img/psico.png"
   },
       {
-    "code":"AOI-5",
+    "code":"AOI-4",
     "name":"GRATIDÃO",
     "category":"decoração",
     "description":"Esta é a peça decorativa perfeita para simbolizar gratidão",
@@ -46,16 +36,7 @@
     "thumbnail":"assets/img/Gratidao.png"
   },
       {
-    "code":"AOI-6",
-    "name":"BOWL DE MALHA",
-    "category":"utilitários",
-    "description":"Apresentando um padrão de malha dinâmico e curvas geométricas limpas, este design encontra o equilíbrio perfeito entre estética e funcionalidade.",
-    "price":"R$ 30,00",
-    "file":"assets/3D/bowl.glb",
-    "thumbnail":"assets/img/bowl.png"
-  },
-      {
-    "code":"AOI-7",
+    "code":"AOI-5",
     "name":"JESUS TE AMA",
     "category":"religioso",
     "description":"Placa decorativa escrito Jesus Te ama.",
@@ -64,7 +45,7 @@
     "thumbnail":"assets/img/jesus.png"
   },
       {
-    "code":"AOI-8",
+    "code":"AOI-6",
     "name":"JOGO DA VELHA",
     "category":"games",
     "description":"5x5cm Um conjunto de Jogo da Velha limpo e minimalista. Perfeito como um brinquedo de mesa, jogo de viagem ou presente.",
@@ -73,16 +54,7 @@
     "thumbnail":"assets/img/tictactoe.png"
   },
   {
-    "code":"AOI-9",
-    "name":"JULIO CESAR",
-    "category":"decoração",
-    "description":"Uma escultura de Júlio César, com 20cm de altura, mas escalável até 25cm. Ideal para presentear junto com um livro.",
-    "price":"R$ 100,00",
-    "file":"assets/3D/JulioCesar-v4.glb",
-    "thumbnail":"assets/img/JulioCesar.png"
-  },
-  {
-    "code":"AOI-10",
+    "code":"AOI-7",
     "name":"GATO ELEGANTE",
     "category":"decoração",
     "description":"Uma escultura de gato, elegante e moderna para decorar o seu quarto, escritório ou qualquer espaço.",
@@ -91,7 +63,7 @@
     "thumbnail":"assets/img/gato.png"
   },
   {
-    "code":"AOI-11",
+    "code":"AOI-7",
     "name":"SUPORTE CELULAR + CARTEIRA",
     "category":"decoração",
     "description":"Excelente opção para presentear ou para usar no escritório e na cabeceira da cama. Além do suporte para celular, possui um prático compartimento para acomodar carteira, chaves e pequenos objetos.",
@@ -100,10 +72,10 @@
     "thumbnail":"assets/img/Suporte_celular.png"
   },
   {
-    "code":"AOI-12",
+    "code":"AOI-8",
     "name":"SUPORTE CONTROLE",
     "category":"gamer",
-    "description":"Excelente opção para presentear ou para usar no setup.",
+    "description":"Suporte organizador premium para setup gamer, projetado para acomodar dois controles e um headset em um único suporte compacto e elegante. Possui acabamento moderno, estrutura resistente e design vertical que otimiza espaço e mantém os acessórios sempre organizados e ao alcance.",
     "price":"R$ 50,00",
     "file":"assets/3D/suporte_controle.glb",
     "thumbnail":"assets/img/suporte_controle.png"
