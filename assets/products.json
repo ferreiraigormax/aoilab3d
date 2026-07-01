@@ -79,5 +79,14 @@
     "price":"R$ 50,00",
     "file":"assets/3D/suporte_controle.glb",
     "thumbnail":"assets/img/suporte_controle.png"
+  },
+   {
+    "code":"AOI-9",
+    "name":"ORE E CONFIE",
+    "category":"religioso",
+    "description":"Linda decoração para ser grato(a) a Deus.",
+    "price":"R$ 50,00",
+    "file":"assets/3D/ore.glb",
+    "thumbnail":"assets/img/ore.png"
   }
 ]
